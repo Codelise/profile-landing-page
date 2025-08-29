@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Bitcount Prop Single", system-ui;
+  background: #111318;
+  color: white;
+  /* min-height: 100vh; */
+}
+
+.page {
+  max-width: 100%;
+}
+
+/* Header Animation */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #292d38;
+  padding: 1rem;
+  background: #1b1f29;
+  animation: slideDown 0.8s ease forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.logo h2:hover {
+  color: #00c4ff; /* nice accent color */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* Animated underline on nav links */
+.nav a {
+  position: relative;
+  margin-inline: 0.6rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #00c4ff;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #00c4ff;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Social icons hover effect */
+.socials-links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.svg img {
+  width: 28px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.svg img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #00c4ff);
+}
+
+main {
+  margin: 2rem 3.5rem;
+}
+
+.hero-section {
+  width: auto;
+  margin: 60px 50px;
+  padding: 0 8rem 0 4rem;
+  display: flex; /* makes it side by side */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  font-family: "Bitcount Prop Single", sans-serif;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.hero-text p {
+  width: 80%;
+  margin: 15px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #ddd;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.8s infinite;
+  color: #00a6d6;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.projectsBtn {
+  background: #00c4ff; /* theme color */
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Bitcount Prop Single", sans-serif; /* inherits project font */
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.projectsBtn:hover {
+  background: #00a6d6; /* darker shade for hover */
+  transform: translateY(-2px);
+}
+
+.hero-img {
+  background: rgba(255, 255, 255, 0.1); /* transparent white */
+  backdrop-filter: blur(12px); /* glass blur effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+}
+
+.projectsBtn a {
+  text-decoration: none;
+  color: inherit; /* button inherits text color */
+  font-size: 1.2rem;
+}
+
+/* Fade in + slide up animation */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom in effect for image */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-text {
+  opacity: 0; /* hidden before animation */
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.5s; /* starts after 0.5s */
+}
+
+.hero-img {
+  opacity: 0;
+  animation: zoomIn 1s ease forwards;
+  animation-delay: 1.2s; /* starts after text */
+}
+
+/* Projects button pops in later */
+.projectsBtn {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 2s;
+}
+
+.section-title {
+  margin-top: 5rem;
+  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #292d38;
+  padding: 8px 18px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Animate one by one */
+.skills span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.skills span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.skills span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.skills span:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.skills span:nth-child(5) {
+  animation-delay: 1s;
+}
+.skills span:nth-child(6) {
+  animation-delay: 1.2s;
+}
+.skills span:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.skills span:hover {
+  background: linear-gradient(135deg, #00c4ff, #0077ff);
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 196, 255, 0.5);
+}
+
+.skills span:hover .skill-icon {
+  transform: rotate(20deg) scale(1.2);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  background: #1c1f28;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.project-img {
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.project h3 {
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.project p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: #9da4b8;
+}

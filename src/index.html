@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aeryun</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/icons/logo.svg" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo">
+          <img
+            src="../assets/icons/logo.svg"
+            width="64"
+            height="64"
+            alt="coding logo"
+          />
+          <h2>AERYUN</h2>
+        </div>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <div class="socials-links">
+            <div class="svg">
+              <a href="https://github.com/Codelise" target="_blank"
+                ><img src="../assets/icons/github.svg" alt="github"
+              /></a>
+            </div>
+            <div class="svg">
+              <a href="https://www.facebook.com/aer.yun.1" target="_blank"
+                ><img src="../assets/icons/facebook.svg" alt="facebook"
+              /></a>
+            </div>
+            <div class="svg">
+              <a href="https://t.me/Codelise3705" target="_blank"
+                ><img src="../assets/icons/telegram.svg" alt="telegram"
+              /></a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section class="hero-section" id="about">
+          <div class="hero-text">
+            <h1 id="typewriter-h1"></h1>
+            <p id="typewriter-p"></p>
+            <button class="projectsBtn">
+              <a href="#projects">View Projects</a>
+            </button>
+          </div>
+          <div class="hero-img">
+            <img
+              src="../assets/profile/Caluscos_Aeryun_Clay_2B.jpg"
+              alt="Picture of Me"
+            />
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="skills-section" id="skills">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills">
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                alt="HTML"
+                class="skill-icon"
+              />
+              HTML</span
+            >
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                alt="CSS"
+                class="skill-icon"
+              />
+              CSS</span
+            >
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+                class="skill-icon"
+              />
+              JavaScript</span
+            >
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React"
+                class="skill-icon"
+              />
+              React</span
+            >
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+                class="skill-icon"
+              />
+              Node.js</span
+            >
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                alt="SQL"
+                class="skill-icon"
+              />
+              SQL</span
+            >
+            <span
+              ><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                alt="PHP"
+                class="skill-icon"
+              />
+              PHP</span
+            >
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="project-section">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <div
+                class="project-img"
+                style="
+                  background-image: url('../assets/projects/School\ Inventory\ System.png');
+                "
+              ></div>
+              <h3>JLGIS: School Inventory System</h3>
+              <p>A web application for managing school Inventory.</p>
+              <p>Tech Stack: HTML, CSS, JS, PHP, MySQL</p>
+            </div>
+            <div class="project">
+              <div
+                class="project-img"
+                style="
+                  background-image: url(../assets/projects/Lost\ and\ Found.png);
+                "
+              ></div>
+              <h3>QuickScan: Lost and Found</h3>
+              <p>
+                A web app where people can search their lost items or post a
+                lost item.
+              </p>
+              <p>
+                Tech Stack: HTML, CSS, JS, Firebase, Cloudinary, OpenClip
+                (OpenAI), FirebaseAuth, Python.
+              </p>
+            </div>
+            <div class="project">
+              <div
+                class="project-img"
+                style="
+                  background-image: url(../assets/projects/Library\ Management\ System.png);
+                "
+              ></div>
+              <h3>Library Management System</h3>
+              <p>A web app that's like an online library</p>
+              <p>Tech Stack: HTML, CSS, JS, PHP, MYSQL</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
