@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Bitcount Prop Single", system-ui;
   background: #111318;
@@ -109,10 +113,17 @@ body {
   filter: drop-shadow(0 0 6px #00c4ff);
 }
 
+/* for the whole main elements */
 main {
-  margin: 2rem 3.5rem;
+  padding-inline: 2rem;
 }
 
+/* for all the section */
+section {
+  margin-bottom: 3rem;
+}
+
+/* ABOUT ME SECTION */
 .hero-section {
   width: auto;
   margin: 60px 50px;
@@ -126,10 +137,12 @@ main {
 .hero-text {
   flex: 1;
   font-family: "Bitcount Prop Single", sans-serif;
+  opacity: 0; /* hidden before animation */
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.5s; /* starts after 0.5s */
 }
 
 .hero-text h1 {
-  font-size: 2.5rem;
   font-weight: 600;
 }
 
@@ -187,6 +200,9 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: zoomIn 1s ease forwards;
+  animation-delay: 1.2s; /* starts after text */
 }
 
 .hero-img img {
@@ -194,6 +210,12 @@ main {
   max-width: 300px;
   height: auto;
   border-radius: 15px;
+}
+
+.projectsBtn {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+  animation-delay: 2s;
 }
 
 .projectsBtn a {
@@ -226,36 +248,134 @@ main {
   }
 }
 
-.hero-text {
-  opacity: 0; /* hidden before animation */
-  animation: fadeSlideUp 1s ease forwards;
-  animation-delay: 0.5s; /* starts after 0.5s */
+/* BIO SECTION */
+.bio-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  padding: 20px 16px 12px 16px;
+  position: relative;
+  animation: pulseTitle 2s infinite ease-in-out;
 }
 
-.hero-img {
-  opacity: 0;
-  animation: zoomIn 1s ease forwards;
-  animation-delay: 1.2s; /* starts after text */
+@keyframes pulseTitle {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4;
+  }
+  50% {
+    text-shadow: 0 0 15px #00bcd4, 0 0 25px #00bcd4;
+  }
 }
 
-/* Projects button pops in later */
-.projectsBtn {
+/* Container animation */
+.bio-container {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  gap: 24px;
   opacity: 0;
-  animation: fadeSlideUp 0.8s ease forwards;
-  animation-delay: 2s;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+/* Active state when visible */
+.bio-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Row styling with hover */
+.bio-row {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: subgrid;
+  border-top: 1px solid #3c4253;
+  padding: 20px 0;
+  transition: background 0.3s ease;
+}
+
+.bio-row:hover {
+  background: rgba(60, 66, 83, 0.2);
+  border-radius: 8px;
+}
+
+/* Label with underline animation */
+.bio-label {
+  color: #9da4b8;
+  font-size: 1.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.bio-label::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00bcd4;
+  transition: width 0.4s ease;
+}
+
+.bio-row:hover .bio-label::after {
+  width: 100%;
+}
+
+.bio-value {
+  color: white;
+  font-size: 1.3em;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.bio-row:hover .bio-value {
+  color: #00bcd4;
+  transform: translateX(5px);
+}
+
+/* SKILLS SECTION */
 
 .section-title {
-  margin-top: 5rem;
   margin-bottom: 15px;
   font-size: 2rem;
   font-weight: 500;
 }
+.section-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  padding: 20px 16px 12px 16px;
+  text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Glow keyframes */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+  }
+  to {
+    text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+  }
+}
 
 .skills {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.skills.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skills span {
@@ -267,35 +387,42 @@ main {
   border-radius: 10px;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeUp 0.6s forwards;
   transition: all 0.3s ease;
   cursor: default;
 }
 
-/* Animate one by one */
-.skills span:nth-child(1) {
-  animation-delay: 0.2s;
+/* Animate only when skills section is visible */
+.skills.show span {
+  animation: fadeUp 0.8s forwards;
 }
-.skills span:nth-child(2) {
-  animation-delay: 0.4s;
+
+.skills.show span:nth-child(1) {
+  animation-delay: 0.3s;
 }
-.skills span:nth-child(3) {
+.skills.show span:nth-child(2) {
   animation-delay: 0.6s;
 }
-.skills span:nth-child(4) {
-  animation-delay: 0.8s;
+.skills.show span:nth-child(3) {
+  animation-delay: 0.9s;
 }
-.skills span:nth-child(5) {
-  animation-delay: 1s;
-}
-.skills span:nth-child(6) {
+.skills.show span:nth-child(4) {
   animation-delay: 1.2s;
 }
-.skills span:nth-child(7) {
-  animation-delay: 1.4s;
+.skills.show span:nth-child(5) {
+  animation-delay: 1.5s;
+}
+.skills.show span:nth-child(6) {
+  animation-delay: 1.8s;
+}
+.skills.show span:nth-child(7) {
+  animation-delay: 2.1s;
 }
 
 @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -320,6 +447,7 @@ main {
   transform: rotate(20deg) scale(1.2);
 }
 
+/* PROJECTS SECTION */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -330,6 +458,14 @@ main {
   background: #1c1f28;
   padding: 10px;
   border-radius: 12px;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.project.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .project-img {
@@ -337,16 +473,106 @@ main {
   background-size: cover;
   background-position: center;
   border-radius: 8px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project:hover .project-img {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.5);
 }
 
 .project h3 {
   margin: 10px 0 5px;
-  font-size: 1.5rem;
   font-weight: 500;
+  transition: color 0.3s;
+}
+
+.project:hover h3 {
+  color: #4da3ff;
 }
 
 .project p {
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   color: #9da4b8;
+}
+
+/* Greeting Modal */
+#greeting-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+  background: #1c1f28;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  max-width: 400px;
+  height: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.5s ease;
+}
+
+.modal-content h2 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Close button */
+#close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Explore button */
+#explore-btn {
+  background: #00c4ff;
+  color: #111;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#explore-btn:hover {
+  background: #00a6d6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

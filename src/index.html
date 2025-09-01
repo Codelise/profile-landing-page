@@ -13,7 +13,7 @@
   <body>
     <div class="page">
       <!-- Header -->
-      <header class="header">
+      <header class="header" id="header">
         <div class="logo">
           <img
             src="../assets/icons/logo.svg"
@@ -59,15 +59,52 @@
           </div>
           <div class="hero-img">
             <img
-              src="../assets/profile/Caluscos_Aeryun_Clay_2B.jpg"
+              src="../assets/profile/Caluscos_Aeryun_Clay_2B.png"
               alt="Picture of Me"
             />
           </div>
         </section>
 
+        <!-- Bio -->
+        <section class="bio-section" id="bio">
+          <h2 class="bio-title">BIO</h2>
+          <div class="bio-container">
+            <div class="bio-row">
+              <p class="bio-label">Address</p>
+              <p class="bio-value">
+                1908 Lundberg Lane, Old Cabalan Olongapo City
+              </p>
+            </div>
+            <div class="bio-row">
+              <p class="bio-label">Birthday</p>
+              <p class="bio-value">March 7, 2005</p>
+            </div>
+            <div class="bio-row">
+              <p class="bio-label">Hobbies</p>
+              <p class="bio-value">
+                Cycling, Gym, Gaming, Coding, Diecast Collecting
+              </p>
+            </div>
+            <div class="bio-row">
+              <p class="bio-label">School</p>
+              <p class="bio-value">Gordon College</p>
+            </div>
+            <div class="bio-row">
+              <p class="bio-label">Program</p>
+              <p class="bio-value">
+                Bachelor of Science in Information Technology
+              </p>
+            </div>
+            <div class="bio-row">
+              <p class="bio-label">Year</p>
+              <p class="bio-value">3rd Year</p>
+            </div>
+          </div>
+        </section>
+
         <!-- Skills -->
         <section class="skills-section" id="skills">
-          <h2 class="section-title">Skills</h2>
+          <h2 class="section-title">SKILLS</h2>
           <div class="skills">
             <span
               ><img
@@ -130,9 +167,9 @@
 
         <!-- Projects -->
         <section id="projects" class="project-section">
-          <h2 class="section-title">Projects</h2>
+          <h2 class="section-title">PROJECTS</h2>
           <div class="projects">
-            <div class="project">
+            <div class="project" data-animate>
               <div
                 class="project-img"
                 style="
@@ -143,7 +180,8 @@
               <p>A web application for managing school Inventory.</p>
               <p>Tech Stack: HTML, CSS, JS, PHP, MySQL</p>
             </div>
-            <div class="project">
+
+            <div class="project" data-animate>
               <div
                 class="project-img"
                 style="
@@ -160,7 +198,8 @@
                 (OpenAI), FirebaseAuth, Python.
               </p>
             </div>
-            <div class="project">
+
+            <div class="project" data-animate>
               <div
                 class="project-img"
                 style="
@@ -176,6 +215,18 @@
       </main>
     </div>
 
+    <!-- Greeting Modal -->
+    <div id="greeting-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2>Welcome to my Profile Page!</h2>
+        <p>
+          Hi, I’m <strong>Aeryun</strong>. Thanks for visiting my site.<br />
+          Feel free to explore my information.
+        </p>
+        <button id="explore-btn">Proceed</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
