@@ -111,4 +111,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // observe all projects
   projects.forEach((p) => observer.observe(p));
+
+  // Hamburger menu
+  const hamburgerBtn = document.getElementById("hamburgerBtn"); // gets the id from hamburger button
+  const sidebar = document.getElementById("sidebar"); // gets the id from aside element
+
+  // this will open sidebar when clicked
+  hamburgerBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // this will stop the click from reacing document
+    sidebar.classList.toggle("show");
+  });
+
+  // this handles the closing of sidebar on mobile
+  document.addEventListener("click", (e) => {
+    if (
+      sidebar.classList.contains("show") &&
+      !sidebar.contains(e.target) &&
+      e.target !== hamburgerBtn
+    ) {
+      sidebar.classList.remove("show");
+    }
+  });
+
+  sidebar.addEventListener("click", () => {
+    if (sidebar.classList.contains("show")) {
+      sidebar.classList.remove("show");
+    }
+  });
 });

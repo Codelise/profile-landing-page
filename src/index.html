@@ -24,9 +24,9 @@
           <h2>AERYUN</h2>
         </div>
         <nav class="nav">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
+          <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#projects">PROJECTS</a>
           <div class="socials-links">
             <div class="svg">
               <a href="https://github.com/Codelise" target="_blank"
@@ -45,8 +45,38 @@
             </div>
           </div>
         </nav>
+
+        <!-- Hamburger (mobile only) -->
+        <button id="hamburgerBtn" class="hamburger">
+          <img src="../assets/icons/burger.png" alt="menu" />
+        </button>
       </header>
 
+      <!-- Sidebar for mobile -->
+      <aside id="sidebar" class="sidebar">
+        <nav class="sidebar-nav">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <div class="socials-links">
+            <div class="svg">
+              <a href="https://github.com/Codelise" target="_blank">
+                <img src="../assets/icons/github.svg" alt="github" />
+              </a>
+            </div>
+            <div class="svg">
+              <a href="https://www.facebook.com/aer.yun.1" target="_blank">
+                <img src="../assets/icons/facebook.svg" alt="facebook" />
+              </a>
+            </div>
+            <div class="svg">
+              <a href="https://t.me/Codelise3705" target="_blank">
+                <img src="../assets/icons/telegram.svg" alt="telegram" />
+              </a>
+            </div>
+          </div>
+        </nav>
+      </aside>
       <main>
         <!-- Hero -->
         <section class="hero-section" id="about">
@@ -54,7 +84,7 @@
             <h1 id="typewriter-h1"></h1>
             <p id="typewriter-p"></p>
             <button class="projectsBtn">
-              <a href="#projects">View Projects</a>
+              <a href="#projects" id="viewProject">View Projects</a>
             </button>
           </div>
           <div class="hero-img">
